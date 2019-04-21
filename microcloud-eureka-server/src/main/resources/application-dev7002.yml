@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: dev7002
+  application:
+    name: microcloud-eureka-7002
+server:
+  port: 7002
+eureka:
+  instance:  # eureak实例定义
+    # 定义Eureka实例所在的主机名称
+    hostname: eureka-7002.com
+  client:  # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
+    # 当前的微服务不注册到eureka之中
+    register-with-eureka: false
+    # 不通过eureka获取注册信息
+    fetch-registry: false
+
+# 启用安全认证处理
+security:
+  basic:
+    enabled: true
+  user:
+    name: edmin
+    password: edmin

@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().and().authorizeRequests().anyRequest()
                 .fullyAuthenticated();
         //所有的Rest服务一定要设置为无状态，以提升操作性能
+        //ALWAYS-保留session状态；STATELESS-session无状态
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

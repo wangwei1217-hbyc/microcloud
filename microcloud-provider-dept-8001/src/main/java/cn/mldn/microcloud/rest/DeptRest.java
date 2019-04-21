@@ -5,6 +5,7 @@ import cn.mldn.vo.Dept;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by wangwei on 2019/4/7 0007.
@@ -27,5 +28,10 @@ public class DeptRest {
     @RequestMapping(value = "/dept/list",method = {RequestMethod.GET})
     public Object list(){
         return deptService.list();
+    }
+
+    @RequestMapping(value = "/dept/sessionId")
+    public Object sessionId(HttpServletRequest request){
+        return request.getSession().getId();
     }
 }

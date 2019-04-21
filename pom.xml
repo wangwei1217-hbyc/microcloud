@@ -12,6 +12,10 @@
         <module>microcloud-provider-dept-8001</module>
         <module>microcloud-consumer-80</module>
         <module>microcloud-security</module>
+        <module>microcloud-eureka-7001</module>
+        <module>microcloud-eureka-7002</module>
+        <module>microcloud-eureka-7003</module>
+        <module>microcloud-eureka-server</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>
@@ -58,7 +62,22 @@
     </dependencyManagement>
     <build>
         <finalName>microcloud</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
