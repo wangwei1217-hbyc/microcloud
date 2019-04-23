@@ -1,0 +1,44 @@
+server:
+  port: 8002
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: cn.mldn.vo            # 定义所有操作类的别名所在包
+  mapper-locations:                                     # 所有的mapper映射文件
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.jdbc.Driver      # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/mldn8002          # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password: root                                  # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+      min-idle: 5                                   # 数据库连接池的最小维持连接数    
+      initial-size: 5                               # 初始化提供的连接数
+      max-total: 5                                  # 最大的连接数
+      # 等待连接获取的最大超时时间
+      max-wait-millis: 200
+  application:
+    name: microcloud-provider-dept
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7002.com:7002/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
+  instance:
+    # 在信息列表时显示主机名称
+    instance-id: dept-8002.com
+    prefer-ip-address: true
+
+    ## 以下两项配置不建议自定义配置
+    # 如果从上一次心跳到现在超过了5秒的间隔，还没有心跳的话，就认为当前服务已宕掉（默认是90秒）
+#    lease-expiration-duration-in-seconds: 5
+    # 设置心跳的时间间隔（默认是30秒）
+#    lease-renewal-interval-in-seconds: 2
+
+info:
+  app.name: microcloud-provider-dept
+  # "$$"写法依赖maven-resources-plugin插件和<resources>配置
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

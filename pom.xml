@@ -10,6 +10,8 @@
     <modules>
         <module>microcloud-api</module>
         <module>microcloud-provider-dept-8001</module>
+        <module>microcloud-provider-dept-8002</module>
+        <module>microcloud-provider-dept-8003</module>
         <module>microcloud-consumer-80</module>
         <module>microcloud-security</module>
         <module>microcloud-eureka-7001</module>
@@ -76,6 +78,13 @@
                     <delimiters>
                         <delimiter>$</delimiter>
                     </delimiters>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork><!-- 如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
                 </configuration>
             </plugin>
             <plugin>
