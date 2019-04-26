@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class MyLoadBalanceConfig {
     @Bean
     public IRule ribbonRule(){
-//        return new RandomRule();
-        return new WeightedResponseTimeRule();
+        return new RandomRule();
+//        return new WeightedResponseTimeRule();
     }
 }
