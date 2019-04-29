@@ -1,0 +1,7 @@
+server:
+  port: 80
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7002.com:7002/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
+    register-with-eureka: false

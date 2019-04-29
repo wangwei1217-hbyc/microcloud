@@ -14,11 +14,13 @@
         <module>microcloud-provider-dept-8003</module>
         <module>microcloud-consumer-80</module>
         <module>microcloud-consumer-ribbon</module>
+        <module>microcloud-consumer-feign</module>
         <module>microcloud-security</module>
         <module>microcloud-eureka-7001</module>
         <module>microcloud-eureka-7002</module>
         <module>microcloud-eureka-7003</module>
         <module>microcloud-eureka-server</module>
+        <module>microcloud-service</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>
