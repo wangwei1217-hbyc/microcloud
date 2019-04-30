@@ -9,6 +9,7 @@
     <version>0.0.1</version>
     <modules>
         <module>microcloud-api</module>
+		<module>microcloud-provider-hystrix-8001</module>
         <module>microcloud-provider-dept-8001</module>
         <module>microcloud-provider-dept-8002</module>
         <module>microcloud-provider-dept-8003</module>
