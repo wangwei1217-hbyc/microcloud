@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created on 2019/4/29.
  */
-@FeignClient(value = "MICROCLOUD-PROVIDER-DEPT",configuration = FeignClientConfig.class)
+@FeignClient(value = "MICROCLOUD-PROVIDER-DEPT",configuration = FeignClientConfig.class,fallbackFactory = IDeptClientServiceFallbackFactory.class)
 public interface IDeptClientService {
     @RequestMapping(value = "/dept/get/{id}",method = {RequestMethod.GET})
     Dept get(@PathVariable("id") long id);

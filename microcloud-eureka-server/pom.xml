@@ -80,6 +80,7 @@
             <plugin>	<!-- 该插件的主要功能是进行项目的打包发布处理 -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
                 <configuration>	<!-- 设置程序执行的主类 -->
                     <mainClass>cn.mldn.microcloud.Eureka_Server_StartSpringApplication</mainClass>
                 </configuration>

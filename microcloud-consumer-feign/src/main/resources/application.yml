@@ -6,6 +6,8 @@ eureka:
       defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7002.com:7002/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
     register-with-eureka: false
 feign:
+  hystrix:
+    enabled: true
   compression:
     request:
       mime-types: # 可以被压缩的类型
