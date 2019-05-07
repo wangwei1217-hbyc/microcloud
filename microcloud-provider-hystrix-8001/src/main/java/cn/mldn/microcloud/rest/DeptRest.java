@@ -9,7 +9,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by wangwei on 2019/4/7 0007.
+ * 熔断机制：
+ *  hystrix.stream监控依赖注解： @HystrixCommand，只有添加了该注解，才能对对应的请求进行监控
  */
 @RestController
 public class DeptRest {
@@ -32,6 +33,7 @@ public class DeptRest {
     }
 
     @RequestMapping(value = "/dept/list",method = {RequestMethod.GET})
+    @HystrixCommand
     public Object list(){
         return deptService.list();
     }
