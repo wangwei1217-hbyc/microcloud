@@ -25,6 +25,7 @@
         <module>microcloud-eureka-7003</module>
         <module>microcloud-eureka-server</module>
         <module>microcloud-service</module>
+        <module>microcloud-zuul-gateway-9501</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>
