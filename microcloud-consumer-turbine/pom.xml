@@ -8,8 +8,8 @@
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>microcloud-consumer-hystrix-dashboard</artifactId>
-    <name>microcloud-consumer-hystrix-dashboard</name>
+    <artifactId>microcloud-consumer-turbine</artifactId>
+    <name>microcloud-consumer-turbine</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -29,19 +29,25 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>-->
+        <!--tuebine不依赖actuator、hystrix、hystrix-dashboard-->
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
+        </dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
-        </dependency>
-        <dependency>
+        </dependency>-->
+
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
-        </dependency>
-        <!--由于消费端子模块没有数据库的相关操作，所以该依赖包不需要，否则启动会报错-找不到数据库的相关配置-->
-        <!--<dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

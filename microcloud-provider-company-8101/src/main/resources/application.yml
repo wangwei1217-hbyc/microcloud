@@ -1,0 +1,26 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: microcloud-provider-company
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7002.com:7002/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
+  instance:
+    # 在信息列表时显示主机名称
+    instance-id: company-8101.com
+    prefer-ip-address: true
+
+    ## 以下两项配置不建议自定义配置
+    # 如果从上一次心跳到现在超过了5秒的间隔，还没有心跳的话，就认为当前服务已宕掉（默认是90秒）
+#    lease-expiration-duration-in-seconds: 5
+    # 设置心跳的时间间隔（默认是30秒）
+#    lease-renewal-interval-in-seconds: 2
+
+info:
+  app.name: microcloud-provider-company
+  # "$$"写法依赖maven-resources-plugin插件和<resources>配置
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
