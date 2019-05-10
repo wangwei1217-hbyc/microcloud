@@ -3,19 +3,36 @@
 <configuration scan="true">
 	<property name="APP" value="${project.artifactId}" />
 	<property name="LOG_HOME" value="/data/www/log/${APP}" />
+	<!-- %m输出的信息,%p日志级别,%t线程名,%d日期,%c类的全名,%i索引【从数字0开始递增】,,, -->
+	<!-- appender是configuration的子节点，是负责写日志的组件。 -->
+	<!-- ConsoleAppender：把日志输出到控制台 -->
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId} - %m%n</pattern>
+			<!-- 控制台也要使用UTF-8，不要使用GBK，否则会中文乱码 -->
+			<charset>UTF-8</charset>
 		</encoder>
 	</appender>
+	<!-- RollingFileAppender：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
+	<!-- 以下的大概意思是：1.先按日期存日志，日期变了，将前一天的日志文件名重命名为XXX%日期%索引，新的日志仍然是demo.log -->
+	<!--             2.如果日期没有发生变化，但是当前日志的文件大小超过1KB时，对当前日志进行分割 重命名-->
 	<appender name="DETAIL"
 		class="ch.qos.logback.core.rolling.RollingFileAppender" additivity="false">
 		<File>${LOG_HOME}/${APP}_detail.log</File>
 		<encoder>
+			<!-- pattern节点，用来设置日志的输出格式 -->
 			<pattern>%d{yy-MM-dd.HH:mm:ss.SSS} [%-16t] %-5p %-22c{0} %X{ServiceId} - %m%n</pattern>
+			<!-- 记录日志的编码:此处设置字符集 - -->
+			<charset>UTF-8</charset>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_HOME}/${APP}_detail.log.%d{yyyyMMdd}</fileNamePattern>
+			<fileNamePattern>${LOG_HOME}/${APP}_detail.%d{yyyyMMdd}.%i.log</fileNamePattern>
+			<!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- maxFileSize:这是活动文件的大小，默认值是10MB，测试时可改成1KB看效果 -->
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 	</appender>
 	<appender name="ACCESS"
@@ -23,9 +40,17 @@
 		<File>${LOG_HOME}/${APP}_access.log</File>
 		<encoder>
 			<pattern>%d{yy-MM-dd.HH:mm:ss.SSS};%X{ServiceId};%m%n</pattern>
+			<!-- 记录日志的编码:此处设置字符集 - -->
+			<charset>UTF-8</charset>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LOG_HOME}/${APP}_access.log.%d{yyyyMMdd}</fileNamePattern>
+			<fileNamePattern>${LOG_HOME}/${APP}_access.%d{yyyyMMdd}.%i.log</fileNamePattern>
+			<!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- maxFileSize:这是活动文件的大小，默认值是10MB，测试时可改成1KB看效果 -->
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 	</appender>
 
@@ -33,7 +58,11 @@
 	<logger name="ACCESS">
 		<appender-ref ref="ACCESS" />
 	</logger>
+
 	<logger name="druid.sql.Statement" level="DEBUG" />
+	<!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
+	<!-- com.liyan为根包，也就是只要是发生在这个根包下面的所有日志操作行为的权限都是DEBUG -->
+	<!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
 	<logger name="cn.mldn.microcloud.dao" level="TRACE" />
 
 	<root level="INFO">
