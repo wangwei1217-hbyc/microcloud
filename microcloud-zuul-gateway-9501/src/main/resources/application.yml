@@ -43,3 +43,9 @@ zuul:
     dept-proxy:
       path: /dept-proxy/**
       serviceId: microcloud-provider-dept
+security:
+  basic:
+    enabled: true
+  user:
+    name: zdmin
+    password: zdmin
