@@ -27,6 +27,7 @@
         <module>microcloud-service</module>
         <module>microcloud-zuul-gateway-9501</module>
         <module>microcloud-provider-upload-8201</module>
+        <module>microcloud-consumer-upload</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>
