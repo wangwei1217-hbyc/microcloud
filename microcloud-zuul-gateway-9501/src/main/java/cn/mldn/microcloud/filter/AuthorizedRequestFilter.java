@@ -22,7 +22,7 @@ public class AuthorizedRequestFilter extends ZuulFilter{
 
     @Override
     public int filterOrder() {
-        return 0;  // 设置优先级，数值越大优先级越高
+        return 0;  // 设置优先级，数值越大优先级越低
     }
 
     @Override
