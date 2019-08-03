@@ -6,7 +6,7 @@ eureka:
       defaultZone: http://edmin:edmin@eureka-7001.com:7001/eureka,http://edmin:edmin@eureka-7002.com:7002/eureka,http://edmin:edmin@eureka-7003.com:7003/eureka
     register-with-eureka: false
   instance:
-    instance-id: upload.com # 在信息列表时显示主机名称
+    instance-id: consumer-upload.com # 在信息列表时显示主机名称
     prefer-ip-address: true # 访问的路径变为IP地址
 
 # 设置日志打印级别
@@ -15,10 +15,10 @@ logging:
 spring:
   thymeleaf:
     enabled: true
-    prefix: classpath: view/templates/
+    prefix: classpath:/view/templates/
     suffix: .html
     encoding: UTF-8
     cache: true
   resources:
     chain:
-      enabled: true
+     enabled: true

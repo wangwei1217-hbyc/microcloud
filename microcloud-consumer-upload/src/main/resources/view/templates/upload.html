@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>SpringCloud微服务</title>
-<link rel="icon" type="image/x-icon" href="/images/mldn.ico" />
+<link rel="icon" type="image/x-icon" href="../static/images/mldn.ico" />
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 </head>
 <body>
 	<form th:action="@{/consumer/upload}" method="post" enctype="multipart/form-data">
-		姓名：<input type="text" name="name" id="name" value="MLDN"/><br/>
-		照片：<input type="file" name="photo" id="photo"/><br/> 
+		姓名：<input type="text" name="name" id="name" value="SpringCloud上传"/><br/>
+		照片：<input type="file" name="file" id="file"/><br/>
 		<input type="submit" value="提交"/>
 		<input type="reset" value="重置"/>
 	</form>

@@ -43,6 +43,28 @@ zuul:
     dept-proxy:
       path: /dept-proxy/**
       serviceId: microcloud-provider-dept
+    upload-proxy:
+      path: /upload-proxy/**
+      serviceId: microcloud-provider-upload
+# 通过zuul对上传微服务进行代理时，如果上传的文件大小较小时，是可以正常上传的，但是如果上传的文件较大时，此时通过zuul进行代理上传时会报错。
+# 解决办法：在请求路径前加上“zuul/**”前缀，此时zuul对上传操作不再进行代理，而是直接交由目标微服务进行操作。
+#  eg:
+#                curl -F "file=@F:/pictures/b.mp4" http://zdmin:zdmin@gateway-9501.com:9501/upload-proxy/upload
+# 交由目标微服务： curl -F "file=@F:/pictures/b.mp4" http://zdmin:zdmin@gateway-9501.com:9501/zuul/upload-proxy/upload
+
+# 在上传大文件的过程中，可能会出现timeout超时的情况，
+# 解决办法：在zuul的application.yml配置文件中加入如下配置：
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+
 security:
   basic:
     enabled: true

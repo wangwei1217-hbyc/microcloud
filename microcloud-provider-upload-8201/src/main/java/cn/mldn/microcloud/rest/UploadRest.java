@@ -15,6 +15,10 @@ import java.util.UUID;
  */
 @RestController
 public class UploadRest {
+
+    /**
+     * 测试：curl -F "file=@F:/pictures/a.jpg" "http://root:root@upload.com:8201/upload"
+     */
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @HystrixCommand(fallbackMethod = "fallback")
     public Object upload(@RequestParam("file") MultipartFile file){

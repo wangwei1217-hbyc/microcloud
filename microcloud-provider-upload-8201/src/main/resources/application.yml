@@ -10,7 +10,7 @@ spring:
       max-file-size: 1024MB # 设置单个文件的最大长度
       max-request-size: 2048MB # 设置最大的请求文件的大小
       file-size-threshold: 1MB # 当上传文件达到1MB的时候进行磁盘写入
-      location: classpath:/upload # 上传的临时目录
+      location: E:/Java_Study/IDE_Workspace/microcloud/microcloud-provider-upload-8201/upload #上传的临时目录
 eureka:
   client:
     service-url:

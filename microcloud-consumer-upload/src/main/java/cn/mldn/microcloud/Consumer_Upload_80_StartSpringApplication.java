@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(basePackages = {"cn.mldn.service"})
+//@EnableFeignClients(basePackages = {"cn.mldn.service"})
 @ComponentScan(basePackages = {"cn.mldn"})
 public class Consumer_Upload_80_StartSpringApplication {
     public static void main(String[] args) {
