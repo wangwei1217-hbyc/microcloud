@@ -1,0 +1,24 @@
+server:
+  port: 7101
+spring:
+  application:
+    name: microcloud-config-server
+  cloud: # 进行SpringCloud的相关配置
+    config: # 进行SpringCloudConfig的相关配置
+      server: # 设置服务的连接地址
+        git: # 本次使用的是GIT作为仓库的管理，所以需要设置GIT的连接地址
+          # 单仓库模式
+          uri: https://github.com/wangwei1217-hbyc/microcloud-config.git
+          # 多仓库模式：通过微服务的spring.application.name的值去动态匹配对应的仓库名称。
+          #           匹配上存在对应的仓库即可检索对应仓库下的资源文件。
+#          uri: https://github.com/wangwei1217-hbyc/{application}
+
+          # 配置仓库目录匹配。不设置的话，默认根目录。
+          # 当配置了仓库匹配目录后，SpringCloudConfig服务端除了可以检索到设置的目录下的资源文件外，
+          # 还可以检索仓库根目录下的资源文件，但是仓库其他目录下的资源文件是检索不到的。
+          # 可以设置多个目录。该属性为字符串数组
+          search-paths:
+          - microcloud-config-dept-client
+#          如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+#          username: xxxxxxx
+#          password: xxxxxxx

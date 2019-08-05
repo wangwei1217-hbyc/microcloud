@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      #定义要读取的资源文件的名称
+      name: microcloud-config-client
+      #定义profile的名称，即加载哪个环境下的配置
+      profile: beta
+      #定义配置文件所在的分支
+      label: master
+      #SpringCloudConfig服务端的地址
+      uri: http://config-server:7101
+      #SpringCloudConfig服务端访问的认证用户名
+      username: root
+      #SpringCloudConfig服务端访问的认证密码
+      password: root
