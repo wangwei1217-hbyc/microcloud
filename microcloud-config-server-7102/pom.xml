@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microcloud-config-server-7101</artifactId>
+    <artifactId>microcloud-config-server-7102</artifactId>
     <dependencies>
         <!--配置中心服务端依赖-->
         <dependency>

@@ -1,0 +1,36 @@
+spring:
+  profiles:
+   active: dev-7901
+---
+server:
+  port: 7901
+spring:
+  profiles: dev-7901
+  application:
+    name: microcloud-config-server-eureka-7901
+eureka:
+  instance:  # eureak实例定义
+    # 定义Eureka实例所在的主机名称
+    hostname: config-eureka-7901.com
+  client:  # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://edmin:edmin@config-eureka-7901.com:7901/eureka
+    # 当前的微服务不注册到eureka之中
+    register-with-eureka: false
+    # 不通过eureka获取注册信息
+    fetch-registry: false
+
+# 启用安全认证处理
+security:
+  basic:
+    enabled: true
+  user:
+    name: edmin
+    password: edmin
+
+#  server: # 建议不设置这些选项。保持默认即可
+#    # 设置为false表示关闭保护模式
+#    enable-self-preservation: true
+#    # 设置清理的间隔时间，而后这个时间使用的是毫秒单位（默认是60秒）
+#    eviction-interval-timer-in-ms: 60000
+

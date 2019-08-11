@@ -1,5 +1,5 @@
 server:
-  port: 7101
+  port: 7103
 spring:
   application:
     name: microcloud-config-server
@@ -28,7 +28,7 @@ eureka:
     service-url:
       defaultZone: http://edmin:edmin@config-eureka-7901.com:7901/eureka
   instance:
-    instance-id: config-server-7101.com
+    instance-id: config-server-7103.com
     prefer-ip-address: true
 
 
