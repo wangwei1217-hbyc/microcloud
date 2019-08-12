@@ -31,9 +31,11 @@
         <module>microcloud-config-server-7101</module>
         <module>microcloud-config-server-7102</module>
         <module>microcloud-config-server-7103</module>
+        <module>microcloud-config-server-eureka-7901</module>
+        <module>microcloud-config-server-bus-7201</module>
         <module>microcloud-config-client-7701</module>
         <module>microcloud-config-dept-client-7801</module>
-        <module>microcloud-config-server-eureka-7901</module>
+        <module>microcloud-config-bus-client-7721</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>

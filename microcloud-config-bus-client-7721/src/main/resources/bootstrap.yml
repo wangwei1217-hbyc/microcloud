@@ -1,0 +1,49 @@
+# 一、SpringCloudConfig服务端(单点模式)
+#spring:
+#  cloud:
+#    config:
+#      #定义要读取的资源文件的名称
+#      name: microcloud-config-client
+#      #定义profile的名称，即加载哪个环境下的配置
+#      profile: beta
+#      #定义配置文件所在的分支
+#      label: master
+#      #SpringCloudConfig服务端的地址
+#      uri: http://config-server:7101
+#      #SpringCloudConfig服务端访问的认证用户名
+#      username: root
+#      #SpringCloudConfig服务端访问的认证密码
+#      password: root
+
+#二、SpringCloudConfig服务端(高可用模式：多机注册到Eureka)
+spring:
+  rabbitmq:
+    host: 192.168.109.128
+    port: 5672
+    username: wangwei
+    password: wangwei
+  cloud:
+    config:
+      #定义要读取的资源文件的名称
+      name: microcloud-config-bus-client
+      #定义profile的名称，即加载哪个环境下的配置
+      profile: dev
+      #定义配置文件所在的分支
+      label: master
+      #SpringCloudConfig服务端的地址
+#      uri: http://config-server:7101
+      #SpringCloudConfig服务端访问的认证用户名
+      username: root
+      #SpringCloudConfig服务端访问的认证密码
+      password: root
+      discovery:
+        enabled: true  # 通过配置中心加载配置文件
+        service-id: MICROCLOUD-CONFIG-SERVER-BUS   # 在eureka之中注册的config配置中心服务ID
+
+# 一定要编写一个eureka的地址,目的是为了让config客户端可以通过eureka找到SpringCloudConfig微服务
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:edmin@config-eureka-7901.com:7901/eureka
+  instance:
+    prefer-ip-address: true

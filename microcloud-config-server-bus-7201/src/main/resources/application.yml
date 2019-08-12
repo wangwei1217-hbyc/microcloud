@@ -1,8 +1,13 @@
 server:
-  port: 7102
+  port: 7201
 spring:
   application:
-    name: microcloud-config-server
+    name: microcloud-config-server-bus
+  rabbitmq:
+    host: 192.168.109.128
+    port: 5672
+    username: wangwei
+    password: wangwei
   cloud: # 进行SpringCloud的相关配置
     config: # 进行SpringCloudConfig的相关配置
       server: # 设置服务的连接地址
@@ -18,7 +23,7 @@ spring:
           # 还可以检索仓库根目录下的资源文件，但是仓库其他目录下的资源文件是检索不到的。
           # 可以设置多个目录。该属性为字符串数组
           search-paths:
-          - microcloud-config-dept-client
+          - microcloud-*
 #          如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
 #          username: xxxxxxx
 #          password: xxxxxxx
@@ -28,7 +33,7 @@ eureka:
     service-url:
       defaultZone: http://edmin:edmin@config-eureka-7901.com:7901/eureka
   instance:
-    instance-id: config-server-7102.com
+    instance-id: config-server-bus-7201.com
     prefer-ip-address: true
 
 
