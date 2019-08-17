@@ -8,6 +8,7 @@ spring:
     port: 5672
     username: wangwei
     password: wangwei
+    virtual-host: /
   cloud: # 进行SpringCloud的相关配置
     config: # 进行SpringCloudConfig的相关配置
       server: # 设置服务的连接地址

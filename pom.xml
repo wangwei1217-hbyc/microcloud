@@ -36,6 +36,9 @@
         <module>microcloud-config-client-7701</module>
         <module>microcloud-config-dept-client-7801</module>
         <module>microcloud-config-bus-client-7721</module>
+        <module>microcloud-stream-provider-8401</module>
+        <module>microcloud-stream-consumer-8402</module>
+        <module>microcloud-sleuth-9601</module>
     </modules>
     <packaging>pom</packaging>
     <name>microcloud</name>

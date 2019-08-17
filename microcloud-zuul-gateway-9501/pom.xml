@@ -17,6 +17,10 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.wangwei</groupId>
             <artifactId>microcloud-api</artifactId>
             <version>0.0.1</version>

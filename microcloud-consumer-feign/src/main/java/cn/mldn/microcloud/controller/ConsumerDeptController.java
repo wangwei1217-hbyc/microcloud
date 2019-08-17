@@ -36,7 +36,9 @@ public class ConsumerDeptController {
     }
     @RequestMapping(value = "/consumer/dept/get/{id}",method = {RequestMethod.GET})
     public Object get(@PathVariable("id") long id){
-        return deptClientService.get(id);
+        Dept dept = deptClientService.get(id);
+        System.err.println("部门->"+dept);
+        return dept;
     }
 
 }

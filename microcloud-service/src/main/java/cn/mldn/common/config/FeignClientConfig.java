@@ -17,6 +17,6 @@ public class FeignClientConfig {
     }
     @Bean
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor(){
-        return new BasicAuthRequestInterceptor("root","root");
+        return new BasicAuthRequestInterceptor("zdmin","zdmin");
     }
 }
