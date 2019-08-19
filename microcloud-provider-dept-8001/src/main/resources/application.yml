@@ -8,8 +8,15 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml
 
 spring:
-  zipkin:
-    base-url: http://zipkin.com:9601 # 所有的数据提交到此服务之中
+  rabbitmq:
+     host: 192.168.109.128
+     port: 5672
+     username: wangwei
+     password: wangwei
+     virtual-host: /
+#  由于此时zipkin服务交由rabbit流进行控制，以下无需配置
+#  zipkin:
+#    base-url: http://zipkin.com:9601 # 所有的数据提交到此服务之中
   sleuth:
     sampler:
       percentage: 1.0 #抽样百分比，默认0.1

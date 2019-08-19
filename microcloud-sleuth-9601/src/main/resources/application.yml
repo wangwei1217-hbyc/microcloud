@@ -3,3 +3,21 @@ server:
 spring:
   application:
     name: microcloud-zipkin-server
+  rabbitmq:
+     host: 192.168.109.128
+     port: 5672
+     username: wangwei
+     password: wangwei
+     virtual-host: /
+  datasource:
+    url: jdbc:mysql://localhost:3306/zipkin
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialize: true
+    continue-on-error: true
+
+zipkin:
+   storage: #设置zipkin收集的信息通过mysql进行存储
+     type: mysql
