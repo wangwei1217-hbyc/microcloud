@@ -25,9 +25,14 @@ spring:
           # 可以设置多个目录。该属性为字符串数组
           search-paths:
           - microcloud-*
+
+
 #          如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
 #          username: xxxxxxx
 #          password: xxxxxxx
+    bus:
+      trace:
+        enabled: true
 
 eureka:
   client:  # 客户端进行Eureka注册的配置
